@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeesu Nex AI - home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #fdfdfe;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: rgb(4, 0, 0);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #9333ea;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: #000;
+            margin: 4px;
+            transition: all 0.3s;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            height: 70vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+                url('https://images.unsplash.com/photo-1706554597536-886fbcd024bc?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 0.9rem;
+            color: rgba(230, 230, 230, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #060606;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Main Section Styles */
+        .main-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .how-to-use {
+            padding: 60px 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .how-to-use .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-side {
+            flex: 1;
+        }
+
+        .image-side {
+            flex: 1;
+        }
+
+        .image-side img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+
+        .how-to-use {
+            padding: 60px 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .how-to-use .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-side {
+            flex: 1;
+        }
+
+        .image-side {
+            flex: 1;
+        }
+
+        .image-side img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Responsive for small screens */
+        @media (max-width: 768px) {
+            .how-to-use .container {
+                flex-direction: column;
+            }
+
+            .text-side {
+                order: 1;
+                /* Text upar */
+            }
+
+            .image-side {
+                order: 2;
+                /* Image niche */
+            }
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #040404;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #bdc3c7;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #34495e;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #3498db;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #fdfdfe;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .how-to-use .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Section -->
+    <nav>
+        <div class="nav-container">
+            <h1>
+                <span style="background: linear-gradient(90deg, #eb5025, #9333ea); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+        background-clip: text; 
+        font-weight: bold;">
+                    Zeesu Nex AI
+                </span>
+            </h1>
+
+            <!-- Hamburger Icon -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Chatbot</a></li>
+                <li><a href="https://www.google.com/search?q=zeesu+royalist">About</a></li>
+                <li><a href="mailto:rzeesu@gmail.com">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span style="background: linear-gradient(90deg, #fe5628, #9b37f9); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+        background-clip: text; 
+        font-weight: bold;
+        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.181);">
+                    Meet Zeesu Nex Ai - Your Smart AI Companion
+                </span>
+            </h1>
+            <p>Experience instant answers, creative solutions, and seamless conversations powered by cutting-edge AI
+                technology</p>
+            <a href="index.html" class="btn">Chatbot</a>
+        </div>
+    </section>
+
+    <!-- Example Main Section -->
+    <section class="main-section">
+        <h2 class="section-title">Our Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Skilled Software Development</h3>
+                <p>Completed 70+ projects and earned 50+ certifications, delivering high-quality software solutions.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Web Applications Expert</h3>
+                <p>Building responsive web applications, diverse software systems, and AI-driven platforms for
+                    real-world use.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Expertise in UI/UX</h3>
+                <p>Designing user-friendly interfaces and engaging experiences, and the developer behind Zeesu Nex Ai.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <h2 class="section-title" style="margin-top: 50px;">How To Use</h2>
+    <section class="how-to-use">
+        <div class="container">
+            <div class="text-side">
+                <h2>How to Use Zeesu Nex Ai</h2> <br>
+                <p>Welcome to Zeesu Nex Ai - your intelligent AI companion designed to help you with everything from
+                    answering questions to generating creative ideas. Whether you are a student, developer, or just
+                    curious about AI, this guide will help you get the most out of your AI experience.</p>
+                <ul>
+                    <li><strong>Step 1: Open Zeesu Nex Ai:</strong> Navigate to the website and make sure your internet
+                        connection is stable.</li>
+                    <li><strong>Step 2: Explore Prompts:</strong> Browse through the available prompts to quickly start
+                        conversations or ask questions without thinking too much about phrasing.</li>
+                    <li><strong>Step 3: Type Your Queries:</strong> You can type anything from general knowledge
+                        questions, coding help, AI explanations, or even creative requests like poems and stories.</li>
+                    <li><strong>Step 4: Receive Instant Responses:</strong> Zeesu Nex Ai analyzes your input and
+                        provides clear, context-aware answers in seconds.</li>
+                    <li><strong>Step 5: Interact and Iterate:</strong> You can ask follow-up questions, request
+                        clarifications, or explore related topics to get even more precise information.</li>
+                    <li><strong>Step 6: Explore Advanced Features:</strong> Use AI-powered tools like document
+                        summarization, idea generation, or problem-solving for productivity and learning.</li>
+                </ul>
+            </div>
+            <div class="image-side">  <a href="index.html">  <img src="s.jpg" alt="Zeesu Nex Ai Illustration"> </a> </div> 
+        </div>
+    </section>
+
+    <h2 class="section-title" style="margin-top: 50px;">Use it in your daily life</h2>
+    <section class="how-to-use">
+        <div class="container">
+
+            <!-- Image Left -->
+            <div class="image-side">
+               <a href="https://zeesu-royalist.github.io/XenAi/"> <img src="s2.jpg" alt="Zeesu Nex Ai Illustration"> </a>
+            </div>
+
+            <!-- Text Right -->
+            <div class="text-side">
+                <h2>How Zeesu Xen Ai is Useful in Daily Life</h2>
+                <br>
+                <p>Zeesu Xen Ai is more than just a chatbot - it's your smart daily assistant.
+                    From managing your tasks to boosting your productivity, it makes life easier and smarter.</p>
+
+                <ul>
+                    <li><strong>Quick Answers:</strong> Get instant solutions for study questions, work tasks, or
+                        general knowledge.</li>
+                    <li><strong>Daily Planning:</strong> Organize schedules, set reminders, and plan your day
+                        effectively.</li>
+                    <li><strong>Learning Support:</strong> Understand complex topics, coding concepts, or new
+                        technologies with ease.</li>
+                    <li><strong>Creative Help:</strong> Generate stories, poems, songs, and fresh content ideas
+                        instantly.</li>
+                    <li><strong>Work Assistance:</strong> Summarize documents, draft emails, and speed up research
+                        tasks.</li>
+                    <li><strong>Personal Companion:</strong> Engage in fun, motivating, and stress-relieving
+                        conversations anytime.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+
+    <h2 class="section-title" style="margin-top: 50px;">How To Use</h2>
+    <section class="how-to-use">
+        <div class="container">
+            <div class="text-side">
+                <h2>How to Use ZeesuVision AI</h2> <br>
+                <p>
+                    Introducing <strong>ZeesuVision AI</strong> - a powerful image generation platform where you can
+                    create stunning visuals
+                    simply by typing your imagination into a prompt. From concept art to logos, posters, and digital
+                    illustrations,
+                    ZeesuVision AI transforms your ideas into reality in seconds.
+                </p>
+                <ul>
+                    <li><strong>Step 1: Open ZeesuVision AI:</strong> Navigate to the ZeesuVision AI website.</li>
+                    <li><strong>Step 2: Enter Your Prompt:</strong> Type a detailed description of the image you want to
+                        generate (e.g., "A futuristic city at sunset in cyberpunk style").</li>
+                    <li><strong>Step 3: Customize Settings:</strong> Adjust resolution, art style, or color tone (if
+                        available) for more control over the final output.</li>
+                    <li><strong>Step 4: Generate Images:</strong> Click the generate button and wait a few seconds while
+                        the AI creates your image.</li>
+                    <li><strong>Step 5: Preview & Download:</strong> View the generated results, choose your favorite,
+                        and download it instantly.</li>
+                    <li><strong>Step 6: Iterate & Refine:</strong> Modify your prompt or try variations to refine the
+                        visuals until they match your vision.</li>
+                </ul>
+            </div>
+         <div class="image-side"> <a href="https://zeesu-royalist.github.io/Vision-AI/"> <img src="s3.jpg" alt="Zeesu Nex Ai Illustration"></a> </div> 
+        </div>
+    </section>
+
+
+    <h2 class="section-title" style="margin-top: 50px;">Prompts You Can Use When Server is Busy</h2>
+    <div class="feature-card">
+        <h3 style="margin-left: 20px;">Prompts:</h3>
+        <ul style="margin-left: 70px;">
+            <li>Tell me a joke</li>
+            <li>Explain AI in simple terms</li>
+            <li>How does machine learning work?</li>
+            <li>Summarize a document</li>
+            <li>Write a poem about technology</li>
+            <li>Who is Zeesu Royalist?</li>
+            <li>Hello</li>
+            <li>Kya haal hai</li>
+            <li>Hi</li>
+            <li>How are you</li>
+            <li>Tell me a joke</li>
+            <li>What's the weather like</li>
+            <li>Explain AI in simple terms</li>
+            <li>Recommend a good book</li>
+            <li>How does machine learning work</li>
+            <li>Summarize a document</li>
+            <li>Who is Zeesu</li>
+            <li>How's your day</li>
+            <li>Funny story</li>
+            <li>Write a poem</li>
+            <li>Write a rap</li>
+            <li>Write a song</li>
+            <li>Can you be my friend</li>
+            <li>I love you</li>
+        </ul>
+    </div>
+    <h2 class="section-title" style="margin-top: 50px;">About Us.</h2>
+    <div class="feature-card">
+        <h3>Heading: About Zeesu Nex Ai</h3>
+        <p>Welcome to Zeesu Nex Ai, your intelligent companion for smarter and faster communication. Powered by
+            cutting-edge artificial intelligence technology, Zeesu Nex Ai is designed to help you get accurate answers,
+            creative solutions, and personalized guidance anytime, anywhere.</p>
+        <p>Our mission is to make AI accessible and useful for everyone — whether you’re a student, professional, or
+            tech enthusiast. Zeesu Nex Ai can assist with answering questions, generating ideas, improving productivity,
+            and even providing friendly conversation, making your digital experience more interactive and engaging.</p>
+        <br>
+        <p><strong>Key Features:</strong></p>
+        <ul>
+            <li> <strong> Intelligent Conversations:</strong> Ask anything, and get precise and context-aware responses.
+            </li>
+            <li> <strong> 24/7 Assistance:</strong> Always ready to help, no matter the time.</li>
+            <li> <strong> Creative Solutions:</strong> From problem-solving to brainstorming, Zeesu Nex Ai is your
+                creative partner.</li>
+            <li> <strong> User-Friendly Interface:</strong> Simple and easy-to-use design for seamless interaction.
+            </li>
+        </ul> <br>
+        <p>At Zeesu Nex Ai, we believe in combining innovation and simplicity to create a chatbot that’s not just smart,
+            but also reliable and human-friendly. Join us on this AI-powered journey to explore, learn, and achieve
+            more.</p>
+    </div>
+    </section>
+
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Zeesu Nex AI</h3>
+                <p>We are an innovative AI-focused platform committed to providing intelligent solutions, responsive web
+                    applications, and AI-driven experiences for users worldwide.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="index.html">Dashboard</a>
+                <a href="https://www.google.com/search?q=zeesu+royalist">About</a>
+                <a href="https://wa.me/9999736978">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: rzeesu@gmail.com</p>
+                <p>Phone: +91 9999730618</p>
+                <p>Address: Kalka Ji, New Delhi.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/p/Zeesu-Royalist-100064169071412/"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/zeesuroyalist"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/zeesu_royalist/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/mohammad-jishan-4361972ba/"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Zeesu Nex Ai. All Rights Reserved.</p>
+            <p style="margin-top:15px;font-style:italic;font-size:10px;color:#b1aeae;">
+                Powered by The
+                <a href="https://www.google.com/search?q=zeesu+royalist" style="text-decoration:none;color:#b6b4b4;">
+                    Zeesu Royalist Company
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script for Hamburger -->
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        }
+    </script>
+</body>
+
+</html>
